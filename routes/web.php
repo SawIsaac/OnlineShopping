@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/item', App\Http\Controllers\ItemController::class);
+Route::resource('/items', App\Http\Controllers\ItemController::class);
 
 Auth::routes();
 
