@@ -10,6 +10,16 @@
                 </div>
             </div>
         </header>
+        <!-- Category section -->
+         <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    @foreach($categories as $category)
+                        
+                    @endforeach
+                </div>
+            </div>
+         </section>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
@@ -18,7 +28,9 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                             @if($item->discount > 0)
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{$item->discount }}%Off</div>
+                            @endif
                             <!-- Product image-->
                             <img class="card-img-top" src="{{$item->image}}" alt="..." />
                             <!-- Product details-->
@@ -27,8 +39,12 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{$item->name}}</h5>
                                     <!-- Product price-->
-                                    <!-- <span class="text-muted text-decoration-line-through">$20.00</span> -->
+                                     @if($item->discount > 0 )
+                                    <span class="text-muted text-decoration-line-through">{{$item->price}}</span>
+                                    {{$item->price - (($item->discount/100)* $item->price)}} MMK
+                                    @else
                                     {{$item->price}} MMK
+                                    @endif
                                 </div>
                             </div>
                             <!-- Product actions-->

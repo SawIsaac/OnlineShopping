@@ -20,7 +20,7 @@
                                 Add to cart
                             </button>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </section>
